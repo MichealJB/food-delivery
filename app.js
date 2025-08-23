@@ -34,7 +34,6 @@ function showScreen(n) {
 document.addEventListener("DOMContentLoaded", () => {
   renderRestaurantList();
 
-  // кнопки
   document.getElementById("clearCartBtn").addEventListener("click", clearCart);
   document.getElementById("confirmOrderBtn").addEventListener("click", confirmOrder);
   document.getElementById("newOrderBtn").addEventListener("click", newOrder);
@@ -43,10 +42,24 @@ document.addEventListener("DOMContentLoaded", () => {
 
   document.getElementById("searchInput").addEventListener("input", filterRestaurants);
 
-  document.querySelectorAll(".nav button").forEach(btn => {
+  document.querySelectorAll(".nav button[data-screen]").forEach(btn => {
     btn.addEventListener("click", () => {
       let screen = btn.dataset.screen;
       showScreen(isNaN(screen) ? screen : Number(screen));
     });
   });
+
+  // Темний режим
+  const themeBtn = document.getElementById("toggleThemeBtn");
+  themeBtn.addEventListener("click", () => {
+    document.body.classList.toggle("dark-mode");
+    let isDark = document.body.classList.contains("dark-mode");
+    localStorage.setItem("theme", isDark ? "dark" : "light");
+    themeBtn.textContent = isDark ? "☀️" : "🌙";
+  });
+
+  if (localStorage.getItem("theme") === "dark") {
+    document.body.classList.add("dark-mode");
+    themeBtn.textContent = "☀️";
+  }
 });
