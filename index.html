@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <title>Доставка їжі</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#fbbf24">
+</head>
+<body>
+  <!-- 🏠 Головний екран -->
+  <div id="screen1" class="screen active">
+    <div class="header yellow">Заклади</div>
+    <div class="search">
+      <input type="text" id="searchInput" placeholder="Пошук ресторану">
+    </div>
+    <div id="restaurantList"></div>
+    <div id="restaurantMenu" style="display:none;"></div>
+  </div>
+
+  <!-- 🛒 Замовлення -->
+  <div id="screen3" class="screen">
+    <div class="header red"><button id="backToMenuBtn">⬅</button> Замовлення</div>
+    <div class="status" id="orderList"></div>
+    <div class="status" id="orderTotal"></div>
+    <input type="text" class="address-input" id="customerAddress" placeholder="Введіть адресу доставки">
+    <input type="tel" class="address-input" id="customerPhone" placeholder="Введіть номер телефону">
+    <input type="text" class="comment-input" id="orderComment" placeholder="Коментар до замовлення">
+    <select class="payment-select" id="paymentMethod">
+      <option value="">Оберіть спосіб оплати</option>
+      <option value="card">💳 Оплата карткою</option>
+      <option value="cash">💵 Готівкою кур'єру</option>
+    </select>
+    <div class="fixed-actions">
+      <button class="btn danger" id="clearCartBtn">Очистити замовлення</button>
+      <button class="btn" id="confirmOrderBtn">Підтвердити</button>
+    </div>
+  </div>
+
+  <!-- ✅ Підтверджені замовлення -->
+  <div id="screenConfirm" class="screen">
+    <div class="header green"><button id="backToCartBtn">⬅</button> Підтверджене замовлення</div>
+    <div class="status" id="confirmedOrders"></div>
+    <button class="btn success" id="newOrderBtn">Нове замовлення</button>
+  </div>
+
+  <!-- 📜 Історія -->
+  <div id="screenHistory" class="screen">
+    <div class="header yellow">Історія замовлень</div>
+    <div id="historyContainer"></div>
+  </div>
+
+  <!-- 🔽 Навігація -->
+  <div class="nav">
+    <button data-screen="1" class="active">🏠</button>
+    <button data-screen="3">🛒</button>
+    <button data-screen="confirm">✅</button>
+    <button data-screen="History">📜</button>
+  </div>
+
+  <!-- СКРИПТИ -->
+  <script src="data.js"></script>
+  <script src="cart.js"></script>
+  <script src="ui.js"></script>
+  <script src="orders.js"></script>
+  <script src="app.js"></script>
+  <script>
+    if ("serviceWorker" in navigator) {
+      navigator.serviceWorker.register("sw.js").then(() => console.log("✅ SW активний"));
+    }
+  </script>
+</body>
+</html>

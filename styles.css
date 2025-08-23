@@ -1,0 +1,168 @@
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        background: #fff8f0;
+        overflow-x: hidden;
+    }
+
+    .screen {
+        display: none;
+        padding: 15px;
+        animation: fadeIn 0.3s ease;
+        min-height: 100vh;
+        box-sizing: border-box;
+        overflow-y: auto;
+        padding-bottom: 300px;
+    }
+
+    .active {
+        display: block;
+    }
+
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    .header {
+        padding: 15px;
+        color: white;
+        font-size: 18px;
+        font-weight: bold;
+        border-bottom-left-radius: 15px;
+        border-bottom-right-radius: 15px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        position: sticky;
+        top: 0;
+        z-index: 10;
+    }
+
+    .header button {
+        background: rgba(255, 255, 255, 0.3);
+        border: none;
+        color: white;
+        font-size: 16px;
+        padding: 6px 10px;
+        border-radius: 8px;
+        cursor: pointer;
+    }
+
+    .header.yellow {
+        background: #fbbf24;
+    }
+
+    .header.red {
+        background: #f87171;
+    }
+
+    .header.green {
+        background: #10b981;
+    }
+
+    .search input,
+    .address-input,
+    .comment-input,
+    .payment-select {
+        width: 100%;
+        padding: 14px;
+        margin: 12px 0;
+        border: none;
+        border-radius: 12px;
+        font-size: 16px;
+        box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+    }
+
+    .card {
+        background: white;
+        padding: 18px;
+        margin: 12px 0;
+        border-radius: 14px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        box-shadow: 0 3px 8px rgba(0, 0, 0, 0.08);
+        cursor: pointer;
+        font-size: 16px;
+    }
+
+    .btn {
+        background: linear-gradient(90deg, #f59e0b, #ef4444);
+        padding: 14px;
+        color: white;
+        border: none;
+        border-radius: 12px;
+        cursor: pointer;
+        font-size: 18px;
+        font-weight: bold;
+        width: 100%;
+    }
+
+    .qty {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+
+    .qty button {
+        background: #ddd;
+        border: none;
+        padding: 6px 12px;
+        cursor: pointer;
+        border-radius: 6px;
+        font-size: 18px;
+    }
+
+    .status {
+        background: white;
+        border-radius: 14px;
+        padding: 16px;
+        margin: 12px 0;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    }
+
+    .nav {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        display: flex;
+        background: #fff;
+        box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.15);
+        z-index: 20;
+    }
+
+    .nav button {
+        flex: 1;
+        padding: 12px 0;
+        border: none;
+        background: none;
+        cursor: pointer;
+        font-size: 20px;
+        font-weight: bold;
+        color: #666;
+    }
+
+    .nav button.active {
+        background: #fef3c7;
+        color: #111;
+    }
+
+    .fixed-actions {
+        position: fixed;
+        bottom: 70px;
+        left: 0;
+        width: 100%;
+        padding: 12px;
+        background: #fff8f0;
+        box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.1);
+    }
