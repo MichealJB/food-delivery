@@ -11,7 +11,10 @@
 <body>
   <!-- 🏠 Головний екран -->
   <div id="screen1" class="screen active">
-    <div class="header yellow">Заклади</div>
+    <div class="header yellow">
+      Заклади
+      <button id="toggleThemeBtn">🌙</button>
+    </div>
     <div class="search">
       <input type="text" id="searchInput" placeholder="Пошук ресторану">
     </div>
@@ -21,7 +24,10 @@
 
   <!-- 🛒 Замовлення -->
   <div id="screen3" class="screen">
-    <div class="header red"><button id="backToMenuBtn">⬅</button> Замовлення</div>
+    <div class="header red">
+      <button id="backToMenuBtn">⬅</button> Замовлення
+      <button id="toggleThemeBtn2">🌙</button>
+    </div>
     <div class="status" id="orderList"></div>
     <div class="status" id="orderTotal"></div>
     <input type="text" class="address-input" id="customerAddress" placeholder="Введіть адресу доставки">
@@ -41,14 +47,20 @@
 
   <!-- ✅ Підтверджені замовлення -->
   <div id="screenConfirm" class="screen">
-    <div class="header green"><button id="backToCartBtn">⬅</button> Підтверджене замовлення</div>
+    <div class="header green">
+      <button id="backToCartBtn">⬅</button> Підтверджене замовлення
+      <button id="toggleThemeBtn3">🌙</button>
+    </div>
     <div class="status" id="confirmedOrders"></div>
     <button class="btn success" id="newOrderBtn">Нове замовлення</button>
   </div>
 
   <!-- 📜 Історія -->
   <div id="screenHistory" class="screen">
-    <div class="header yellow">Історія замовлень</div>
+    <div class="header yellow">
+      Історія замовлень
+      <button id="toggleThemeBtn4">🌙</button>
+    </div>
     <div id="historyContainer"></div>
   </div>
 
@@ -58,7 +70,6 @@
     <button data-screen="3">🛒</button>
     <button data-screen="confirm">✅</button>
     <button data-screen="History">📜</button>
-    <button id="toggleThemeBtn">🌙</button>
   </div>
 
   <!-- СКРИПТИ -->

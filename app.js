@@ -30,6 +30,19 @@ function showScreen(n) {
   }
 }
 
+function initThemeButton(id) {
+  const btn = document.getElementById(id);
+  if (!btn) return;
+  btn.addEventListener("click", () => {
+    document.body.classList.toggle("dark-mode");
+    let isDark = document.body.classList.contains("dark-mode");
+    localStorage.setItem("theme", isDark ? "dark" : "light");
+    document.querySelectorAll('[id^="toggleThemeBtn"]').forEach(b => {
+      b.textContent = isDark ? "☀️" : "🌙";
+    });
+  });
+}
+
 // ===== Init =====
 document.addEventListener("DOMContentLoaded", () => {
   renderRestaurantList();
@@ -49,17 +62,12 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // Темний режим
-  const themeBtn = document.getElementById("toggleThemeBtn");
-  themeBtn.addEventListener("click", () => {
-    document.body.classList.toggle("dark-mode");
-    let isDark = document.body.classList.contains("dark-mode");
-    localStorage.setItem("theme", isDark ? "dark" : "light");
-    themeBtn.textContent = isDark ? "☀️" : "🌙";
-  });
+  // Ініціалізація кнопок теми у всіх хедерах
+  ["toggleThemeBtn","toggleThemeBtn2","toggleThemeBtn3","toggleThemeBtn4"]
+    .forEach(initThemeButton);
 
   if (localStorage.getItem("theme") === "dark") {
     document.body.classList.add("dark-mode");
-    themeBtn.textContent = "☀️";
+    document.querySelectorAll('[id^="toggleThemeBtn"]').forEach(b => b.textContent = "☀️");
   }
 });
