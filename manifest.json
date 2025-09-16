@@ -1,21 +1,12 @@
 {
-  "name": "Доставка їжі",
-  "short_name": "Доставка",
+  "name": "Food Delivery App",
+  "short_name": "FoodApp",
   "start_url": "./index.html",
   "display": "standalone",
-  "background_color": "#fff8f0",
-  "theme_color": "#fbbf24",
-  "orientation": "portrait",
+  "background_color": "#ffffff",
+  "theme_color": "#f59e0b",
   "icons": [
-    {
-      "src": "icon-192.png",
-      "sizes": "192x192",
-      "type": "image/png"
-    },
-    {
-      "src": "icon-512.png",
-      "sizes": "512x512",
-      "type": "image/png"
-    }
+    { "src": "icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "icon-512.png", "sizes": "512x512", "type": "image/png" }
   ]
 }
